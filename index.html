@@ -80,7 +80,7 @@
 <label for="distancerange">Distance</label>
 <input id="distancerange" type="range" min="100" max="2000" step="1" onchange="camera.distance = this.value">
 
-<a href="https://github.com/s-macke/VoxelSpace">Github project page</a>
+<!--<a href="https://github.com/s-macke/VoxelSpace">Github project page</a>-->
 
 </div>
 
@@ -433,7 +433,7 @@ function Draw()
         updaterunning = false;
     } else
     {
-        window.requestAnimationFrame(Draw, 0);
+        window.setTimeout(Draw, 0);
     }
 }
 
@@ -521,15 +521,14 @@ function Init()
     OnResizeWindow();
 
     // set event handlers for keyboard, mouse, touchscreen and window resize
-    var canvas = document.getElementById("fullscreenCanvas");
-    window.onkeydown    = DetectKeysDown;
-    window.onkeyup      = DetectKeysUp;
-    canvas.onmousedown  = DetectMouseDown;
-    canvas.onmouseup    = DetectMouseUp;
-    canvas.onmousemove  = DetectMouseMove;
-    canvas.ontouchstart = DetectMouseDown;
-    canvas.ontouchend   = DetectMouseUp;
-    canvas.ontouchmove  = DetectMouseMove;
+    document.onkeydown    = DetectKeysDown;
+    document.onkeyup      = DetectKeysUp;
+    document.onmousedown  = DetectMouseDown;
+    document.onmouseup    = DetectMouseUp;
+    document.onmousemove  = DetectMouseMove;
+    document.ontouchstart = DetectMouseDown;
+    document.ontouchend   = DetectMouseUp;
+    document.ontouchmove  = DetectMouseMove;
 
     window.onresize       = OnResizeWindow;
 
